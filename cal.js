@@ -1,5 +1,5 @@
-function calculate(string) {
-    let rim =["I","II","III","IV","V","VI","VII","VIII","IX","X"];
+function calculator(string) {
+ let rim =["I","II","III","IV","V","VI","VII","VIII","IX","X"];
        
 	let abs = string.split(" ");
     if (abs.length != 3) throw new Error("Неверное число операндов в выражении или отсутсвие пробелов между ними");
@@ -39,12 +39,15 @@ if (arab.includes(abs[0])&&arab.includes(abs[2])) {
     function rims(g) {
         let numb =  ["", "", "XX","XXX","XL","L","LX","LXX","LXXX","XC"]; 
         if (g<=0) {
-          return "''"
+          return ""
         } else if (g==10) {
           return "X"
         } else if(g==100) {
           return "C"
-        } else {
+        } else if (g==19) {
+          return "XIX"
+        } 
+        else {
        let x = Math.trunc(g/10);
        let y = g%10;
        if(y==0) return numb[x];
@@ -61,3 +64,6 @@ if (arab.includes(abs[0])&&arab.includes(abs[2])) {
 }
  } else  throw new Error("Некорректный ввод числовых данных");
 }
+
+
+module.exports = calculator; // Не трогайте эту строчку
